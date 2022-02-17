@@ -2,6 +2,7 @@ package component.forms.fieldContactForm;
 
 import component.AbstractComponent;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,7 +33,7 @@ public class InputList extends AbstractComponent {
     }
 
     private void openOptionsPopup() {
-        driver.findElement(inputListLocator).click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(inputListLocator));
     }
 
     public void selectOption(String optionName) {
