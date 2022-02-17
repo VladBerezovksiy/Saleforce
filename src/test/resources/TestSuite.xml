@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Saleforce" parallel="tests" thread-count="2">
+
+    <!--<groups>
+        <run>
+            <include name="smoke" />
+        </run>
+    </groups>-->
+
+    <parameter name="login" value="vladberezovksiy-ls2j@force.com"/>
+    <parameter name="password" value="VTMSAQA-10"/>
+
+    <!--<test name="AccountTest">
+        <classes>
+            <class name="saleforce.AddAccountTest" />
+        </classes>
+    </test>-->
+    <test name="ContactTest">
+        <classes>
+            <class name="saleforce.AddContactTest" />
+        </classes>
+    </test>
+</suite>
