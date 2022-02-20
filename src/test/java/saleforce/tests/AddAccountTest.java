@@ -1,9 +1,10 @@
-package saleforce;
+package saleforce.tests;
 
 import builders.AccountBuilder;
 import model.AccountModel;
 import org.testng.annotations.Test;
-import utils.AccountModelUtils;
+import saleforce.tests.base.BaseTest;
+import utils.ModelUtils.AccountModelUtils;
 
 public class AddAccountTest extends BaseTest {
 
@@ -13,7 +14,7 @@ public class AddAccountTest extends BaseTest {
             .setPhone("+380966192687")
             .build();
 
-    @Test
+    @Test(description = "Check added new Account in Salesforce")
     public void addNewAccountTest() {
         mainSteps
                 .openSaleforceLoginPage()

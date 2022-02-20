@@ -6,6 +6,7 @@ import component.forms.CreateContactFormComponent;
 import component.forms.fieldContactForm.DropDown;
 import component.forms.fieldContactForm.Input;
 import component.forms.fieldContactForm.InputList;
+import io.qameta.allure.Step;
 import model.ContactModel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -19,6 +20,7 @@ public class ContactsSteps extends AbstractStep {
         super(driver);
     }
 
+    @Step("Create new Contact Form")
     public ContactsSteps createNewContact(ContactModel contactModel) {
         contactPage = new ContactPage(driver);
         contactPage.openNewAccountForm();
@@ -41,6 +43,7 @@ public class ContactsSteps extends AbstractStep {
         new InputList(driver, "Account Name").selectOption(contactModel.getAccountName());
     }
 
+    @Step("Check value is valid")
     public void validateContactCreated(ContactModel expectedModel) {
         contactPage.openDetails();
         ContactModel actualModel = getActualContact();

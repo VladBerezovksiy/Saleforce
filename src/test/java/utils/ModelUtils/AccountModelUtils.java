@@ -1,4 +1,4 @@
-package utils;
+package utils.ModelUtils;
 
 import model.AccountModel;
 

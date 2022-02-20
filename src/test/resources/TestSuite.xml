@@ -2,23 +2,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Saleforce" parallel="tests" thread-count="2">
 
-    <!--<groups>
-        <run>
-            <include name="smoke" />
-        </run>
-    </groups>-->
 
-    <parameter name="login" value="vladberezovksiy-ls2j@force.com"/>
-    <parameter name="password" value="VTMSAQA-10"/>
+<!--    <parameter name="login" value="vladberezovksiy-ls2j@force.com"/>-->
+<!--    <parameter name="password" value="VTMSAQA-10"/>-->
 
-    <!--<test name="AccountTest">
+    <test name="AccountTest">
         <classes>
-            <class name="saleforce.AddAccountTest" />
+            <class name="saleforce.tests.AddAccountTest"/>
         </classes>
-    </test>-->
+    </test>
     <test name="ContactTest">
         <classes>
-            <class name="saleforce.AddContactTest" />
+            <class name="saleforce.tests.AddContactTest"/>
         </classes>
     </test>
 </suite>
