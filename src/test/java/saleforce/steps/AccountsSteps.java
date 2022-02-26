@@ -4,6 +4,7 @@ import component.account.AccountDetailsComponent;
 import component.forms.CreateAccountFormComponent;
 import component.forms.fieldAccountForm.DropDown;
 import component.forms.fieldAccountForm.Input;
+import io.qameta.allure.Step;
 import model.AccountModel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -66,6 +67,7 @@ public class AccountsSteps extends AbstractStep {
         );
     }*/
 
+    @Step("Create new Account Form")
     public AccountsSteps createNewAccount(AccountModel accountModel) {
         accountPage = new AccountPage(driver);
         accountPage.openNewAccountForm();
@@ -91,6 +93,7 @@ public class AccountsSteps extends AbstractStep {
         new DropDown(driver, "Industry").selectOption(accountModel.getIndustry());
     }
 
+    @Step("Check value is valid")
     public void validateAccountCreated(AccountModel expectedModel) {
         accountPage.openDetails();
         AccountModel actualModel = getActualAccount();
