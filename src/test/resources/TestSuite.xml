@@ -2,8 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Saleforce" parallel="tests" thread-count="2">
 
-
-<!--    <parameter name="login" value="vladberezovksiy-ls2j@force.com"/>-->
+<!--    <parameter name="login" value="vladinyo-tkqa@force.com"/>-->
 <!--    <parameter name="password" value="VTMSAQA-10"/>-->
 
     <test name="AccountTest">
