@@ -14,6 +14,7 @@
         <maven.compiler.target>14</maven.compiler.target>
         <aspectj.version>1.9.8</aspectj.version>
         <testNgSuiteFile>src/test/resources/</testNgSuiteFile>
+        <driver_path>src/test/resources/win/chromedriver.exe</driver_path>
         <suite>TestSuite</suite>
     </properties>
 
@@ -54,6 +55,9 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${testNgSuiteFile}${suite}.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <environmentVariables>
+                        <driver_path>${driver_path}</driver_path>
+                    </environmentVariables>
                     <!--<systemProperties>
                         <property>
                             <name>allure.results.directory</name>
