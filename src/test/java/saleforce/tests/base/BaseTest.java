@@ -10,6 +10,7 @@ import org.testng.annotations.Listeners;
 import saleforce.steps.AccountsSteps;
 import saleforce.steps.ContactsSteps;
 import saleforce.steps.MainSteps;
+import utils.CapabilitiesGenerator;
 import utils.TestListener;
 
 import java.io.File;
@@ -23,23 +24,9 @@ public class BaseTest {
     protected AccountsSteps accountsSteps;
     protected ContactsSteps contactsSteps;
 
-    public static final File RESOURCE_PATH_FILE = new File("src/test/resources");
-    public static final String ABSOLUTE_RESOURCE_PATH = RESOURCE_PATH_FILE.getAbsolutePath();
-
     @BeforeMethod
     public void setup(ITestContext context) {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless");
-        chromeOptions.addArguments("--disable-notifications");
-        chromeOptions.addArguments("--ignore-popup-blocking");
-        chromeOptions.addArguments("--ignore-certificate-errors");
-
-        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("download.default_directory", ABSOLUTE_RESOURCE_PATH);
-        chromeOptions.setExperimentalOption("prefs", chromePrefs);
-
-        driver = new ChromeDriver(chromeOptions);
+        driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
         setDriverAttribute(context);
         mainSteps = new MainSteps(driver);
         accountsSteps = new AccountsSteps(driver);
