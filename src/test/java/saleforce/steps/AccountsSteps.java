@@ -83,10 +83,8 @@ public class AccountsSteps extends AbstractStep {
     }
 
     private void fillAccountForm(AccountModel accountModel) {
-        Input accountNameInput = new Input(driver, "Account Name");
-        accountNameInput.insert(accountModel.getAccountName());
-        Input phoneInput = new Input(driver, "Phone");
-        phoneInput.insert(accountModel.getPhone());
+        new Input(driver, "Account Name").insert(accountModel.getAccountName());
+        new Input(driver, "Phone").insert(accountModel.getPhone());
         new Input(driver, "Website").insert(accountModel.getWebsite());
         new Input(driver, "Employees").insert(String.valueOf(accountModel.getEmployees()));
         new DropDown(driver, "Type").selectOption(accountModel.getType());

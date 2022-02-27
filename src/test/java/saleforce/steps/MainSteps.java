@@ -13,6 +13,11 @@ import pages.SaleforceLoginPage;
 
 public class MainSteps extends AbstractStep {
 
+    static {
+        System.setProperty("login", "vladinyo-tkqa@force.com");
+        System.setProperty("password", "VTMSAQA-10");
+    }
+
     private SaleforceLoginPage loginPage;
     private HomePage homePage;
     private AccountsButton accountsButton;
@@ -35,7 +40,7 @@ public class MainSteps extends AbstractStep {
 
     @Step("Login in Account")
     public MainSteps loginWithValidCredits() {
-        loginPage.authentication(VALID_LOGIN, VALID_PASSWORD);
+        loginPage.authentication(System.getProperty("login"), System.getProperty("password"));
         homePage = new HomePage(driver);
         validatePageIsLoaded(homePage);
         return this;
