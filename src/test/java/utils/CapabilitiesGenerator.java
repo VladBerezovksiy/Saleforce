@@ -15,7 +15,7 @@ public class CapabilitiesGenerator {
         ChromeOptions options = new ChromeOptions();
         String os = System.getProperty("os.name").toLowerCase();
         System.out.println("Operational system: " + os + "; Driver path: " + RESOURCE_PATH);
-        System.setProperty("webdriver.chrome.driver", System.getenv("driver_path"));
+        System.setProperty("webdriver.chrome.driver", PropertiesUtils.get("driver_path"));
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-notifications");
