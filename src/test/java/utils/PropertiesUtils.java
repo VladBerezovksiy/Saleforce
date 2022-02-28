@@ -14,7 +14,7 @@ public class PropertiesUtils {
         PROPERTIES = System.getProperties();
         try {
             PROPERTIES.load(new FileInputStream(new File(CONFIG_PATH)));
-        } catch (IOException exception) {
+        } catch (IOException e) {
             System.out.println("WARNING: There is no property file " + CONFIG_PATH);
         }
     }
@@ -26,11 +26,11 @@ public class PropertiesUtils {
         return PROPERTIES.getProperty(propertyKey);
     }
 
-    public static String getEnv(String key) {
-        String envVar = System.getenv(key);
-        if (envVar == null) {
-            envVar = System.getProperty(key);
+    public static String getEnv(String propertyKey) {
+        String envProp = System.getenv(propertyKey);
+        if (envProp == null) {
+            envProp = get(propertyKey);
         }
-        return envVar;
+        return envProp;
     }
 }

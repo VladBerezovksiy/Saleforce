@@ -51,13 +51,13 @@ workflows:
   commit:
     jobs:
       - ui-tests
-#  periodical:
-#    triggers:
-#      - schedule:
-#          cron: "1 4 * * *"
-#          filters:
-#            branches:
-#              only:
-#                - master
-#    jobs:
-#      - ui-tests
+  periodical:
+    triggers:
+      - schedule:
+          cron: "1 4 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - ui-tests
