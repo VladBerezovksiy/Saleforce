@@ -36,7 +36,10 @@ public class MainSteps extends AbstractStep {
 
     @Step("Login in Account")
     public MainSteps loginWithValidCredits() {
-        loginPage.authentication(PropertiesUtils.getEnv("valid_login"), PropertiesUtils.getEnv("valid_password"));
+        loginPage.authentication(
+                PropertiesUtils.getEnv("valid_login"),
+                PropertiesUtils.getEnv("valid_password")
+        );
         homePage = new HomePage(driver);
         validatePageIsLoaded(homePage);
         return this;
