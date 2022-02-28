@@ -12,7 +12,7 @@ public abstract class AbstractComponent {
 
     public AbstractComponent(WebDriver driver) {
         this.driver = driver;
-        this.explicitlyWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.explicitlyWait = new WebDriverWait(driver, Duration.ofSeconds(40));
     }
 
     abstract public boolean isComponentDisplayed();

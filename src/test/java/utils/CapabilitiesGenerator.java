@@ -28,6 +28,7 @@ public class CapabilitiesGenerator {
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory", ABSOLUTE_RESOURCE_PATH);
         options.setExperimentalOption("prefs", chromePrefs);
+
         return options;
     }
 
