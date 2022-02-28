@@ -13,9 +13,6 @@ import saleforce.steps.MainSteps;
 import utils.CapabilitiesGenerator;
 import utils.TestListener;
 
-import java.io.File;
-import java.util.HashMap;
-
 @Listeners(TestListener.class)
 public class BaseTest {
 
