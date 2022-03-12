@@ -9,7 +9,6 @@ import pages.AccountPage;
 import pages.ContactPage;
 import pages.HomePage;
 import pages.SaleforceLoginPage;
-import utils.PropertiesUtils;
 
 public class MainSteps extends AbstractStep {
 
@@ -18,8 +17,8 @@ public class MainSteps extends AbstractStep {
     private AccountsButton accountsButton;
     private ContactsButton contactsButton;
 
-    private static final String VALID_LOGIN = System.getProperty("login");
-    private static final String VALID_PASSWORD = System.getProperty("password");
+    private static final String VALID_LOGIN = System.getProperty("valid_login");
+    private static final String VALID_PASSWORD = System.getProperty("valid_password");
 
     public MainSteps(WebDriver driver) {
         super(driver);
@@ -36,8 +35,8 @@ public class MainSteps extends AbstractStep {
     @Step("Login in Account")
     public MainSteps loginWithValidCredits() {
         loginPage.authentication(
-                PropertiesUtils.getEnv("valid_login"),
-                PropertiesUtils.getEnv("valid_password")
+                VALID_LOGIN,
+                VALID_PASSWORD
         );
         homePage = new HomePage(driver);
         validatePageIsLoaded(homePage);
