@@ -13,7 +13,8 @@ pipeline {
                 git 'https://github.com/VladBerezovksiy/Saleforce.git'
 
                 // Run Maven on a Unix agent.
-                sh "mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
+//                 sh "mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
+                sh "mvn clean test -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
             }
 
             post {
