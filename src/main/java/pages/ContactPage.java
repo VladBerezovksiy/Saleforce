@@ -1,5 +1,7 @@
 package pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,6 +17,8 @@ public class ContactPage extends BasePage {
             "//div[@records-recordlayoutsection_recordlayoutsection and contains(@class,'slds-form')]" +
                     "//@slot/ancestor::div[@class='slds-form-element__control']");
 
+    Logger log = LogManager.getLogger(ContactPage.class);
+
     public ContactPage(WebDriver driver) {
         super(driver);
     }
@@ -26,6 +30,7 @@ public class ContactPage extends BasePage {
 
     @Override
     public BasePage openPage() {
+        log.info("Read Contact page");
         driver.get(BASE_URL);
         return this;
     }
