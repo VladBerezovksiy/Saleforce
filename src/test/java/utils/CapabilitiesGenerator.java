@@ -14,10 +14,15 @@ public class CapabilitiesGenerator {
     public static ChromeOptions getChromeOptions() {
         ChromeOptions options = new ChromeOptions();
         String os = System.getProperty("os.name").toLowerCase();
-        String driver_path = PropertiesUtils.getEnv("driver_path");
-        System.out.println("Operational System: " + os + "; Driver path: " + driver_path);
-        System.setProperty("webdriver.chrome.driver", driver_path);
-
+        if (os.contains("win")) {
+            String driver_path = PropertiesUtils.getEnv("win_driver_path");
+            System.out.println("Operational System: " + os + "; Driver path: " + driver_path);
+            System.setProperty("webdriver.chrome.driver", driver_path);
+        } else if (os.contains("lin")) {
+            String driver_path = PropertiesUtils.getEnv("linux_driver_path");
+            System.out.println("Operational System: " + os + "; Driver path: " + driver_path);
+            System.setProperty("webdriver.chrome.driver", driver_path);
+        }
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-notifications");
@@ -27,11 +32,11 @@ public class CapabilitiesGenerator {
         options.addArguments("--disable-notifications");
         options.addArguments("--headless");
 
-    HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("download.default_directory",ABSOLUTE_RESOURCE_PATH);
-        options.setExperimentalOption("prefs",chromePrefs);
+        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+        chromePrefs.put("download.default_directory", ABSOLUTE_RESOURCE_PATH);
+        options.setExperimentalOption("prefs", chromePrefs);
 
         return options;
-}
+    }
 
 }
