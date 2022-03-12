@@ -12,8 +12,8 @@ pipeline {
                 // Get some code from a GitHub repository
                 git 'https://github.com/VladBerezovksiy/Saleforce.git'
 
-                // To run Maven on a Windows agent, use
-                bat "mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
+                // Run Maven on a Unix agent.
+                sh "mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
             }
 
             post {
