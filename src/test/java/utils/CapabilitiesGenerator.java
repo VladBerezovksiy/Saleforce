@@ -15,13 +15,13 @@ public class CapabilitiesGenerator {
         ChromeOptions options = new ChromeOptions();
         String os = System.getProperty("os.name").toLowerCase();
         if (os.contains("win")) {
-            String driver_path = PropertiesUtils.getEnv("win_driver_path");
-            System.out.println("Operational System: " + os + "; Driver path: " + driver_path);
-            System.setProperty("webdriver.chrome.driver", driver_path);
+            String win_driver_path = PropertiesUtils.getEnv("win_driver_path");
+            System.out.println("Operational System: " + os + "; Driver path: " + win_driver_path);
+            System.setProperty("webdriver.chrome.driver", win_driver_path);
         } else if (os.contains("lin")) {
-            String driver_path = PropertiesUtils.getEnv("linux_driver_path");
-            System.out.println("Operational System: " + os + "; Driver path: " + driver_path);
-            System.setProperty("webdriver.chrome.driver", driver_path);
+            String linux_driver_path = PropertiesUtils.getEnv("linux_driver_path");
+            System.out.println("Operational System: " + os + "; Driver path: " + linux_driver_path);
+            System.setProperty("webdriver.chrome.driver", linux_driver_path);
         }
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-popup-blocking");

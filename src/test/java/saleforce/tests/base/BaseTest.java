@@ -21,18 +21,16 @@ public class BaseTest {
     protected ContactsSteps contactsSteps;
 
     @BeforeMethod
-    public void setup(ITestContext context) {
+    public void setup(ITestContext iTestContext) {
         driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
-        setDriverAttribute(context);
+        setContextAttribute(iTestContext, "driver", driver);
         mainSteps = new MainSteps(driver);
         accountsSteps = new AccountsSteps(driver);
         contactsSteps = new ContactsSteps(driver);
     }
 
-    private void setDriverAttribute(ITestContext context) {
-        String variable = "driver";
-        System.out.println("Setting driver into context with variable name " + variable);
-        context.setAttribute(variable, driver);
+    private void setContextAttribute(ITestContext iTestContext, String attributeKey, Object attributeValue) {
+        iTestContext.setAttribute(attributeKey, attributeValue);
     }
 
     @AfterMethod(alwaysRun = true)
