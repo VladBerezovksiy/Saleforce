@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+            driver_path = "chromedriver"
+    }
+
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "Maven"
@@ -13,8 +17,8 @@ pipeline {
 
                 sh 'pwd'
                 sh 'ls -l'
-                sh 'chmod -R 777 ./src/test/resources/linux/chromedriver'
-                sh 'ls -l ./src/test/resources/linux/chromedriver'
+                sh 'chmod -R 777 $driver_path'
+                sh 'ls -l $driver_path'
 
                 // Run Maven on a Unix agent.
                 sh "mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
