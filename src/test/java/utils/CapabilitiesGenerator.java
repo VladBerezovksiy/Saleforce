@@ -1,10 +1,12 @@
 package utils;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 import java.util.HashMap;
 
+@Log4j2
 public class CapabilitiesGenerator {
 
     public static final String RESOURCE_PATH = "src/test/resources";
@@ -15,7 +17,8 @@ public class CapabilitiesGenerator {
         ChromeOptions options = new ChromeOptions();
         String os = System.getProperty("os.name").toLowerCase();
         String driver_path = PropertiesUtils.getEnv("driver_path");
-        System.out.println("Operational System: " + os + "; Driver path: " + driver_path);
+        log.info("Operational System: " + os + "; Driver path: " + driver_path);
+//        System.out.println("Operational System: " + os + "; Driver path: " + driver_path);
         System.setProperty("webdriver.chrome.driver", driver_path);
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-popup-blocking");
