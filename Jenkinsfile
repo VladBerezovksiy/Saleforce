@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-            driver_path = "src/test/resources/linux/chromedriver"
+            driver_path = "chromedriver"
     }
 
     tools {
@@ -16,6 +16,8 @@ pipeline {
                 git branch: '$BRANCH', url: 'https://github.com/VladBerezovksiy/Saleforce.git'
 
                 sh 'pwd'
+                sh 'wget https://chromedriver.storage.googleapis.com/99.0.4844.51/chromedriver_linux64.zip'
+                sh 'unzip chromedriver_linux64.zip'
                 sh 'ls -l'
                 sh 'chmod -R 777 $driver_path'
                 sh 'ls -l $driver_path'
