@@ -10,7 +10,6 @@ public class CapabilitiesGenerator {
     public static final String RESOURCE_PATH = "src/test/resources";
     public static final File RESOURCE_PATH_FILE = new File(RESOURCE_PATH);
     public static final String ABSOLUTE_RESOURCE_PATH = RESOURCE_PATH_FILE.getAbsolutePath();
-    private static String driver_path;
 
     public static ChromeOptions getChromeOptions() {
         ChromeOptions options = new ChromeOptions();
@@ -33,5 +32,4 @@ public class CapabilitiesGenerator {
 
         return options;
     }
-
 }
