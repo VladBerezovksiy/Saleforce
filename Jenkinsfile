@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('tests') {
             steps {
-                git 'https://github.com/VladBerezovksiy/Saleforce.git'
+                git branch: '$BRANCH', url: 'https://github.com/VladBerezovksiy/Saleforce.git'
 
                 sh 'pwd'
                 sh 'ls -l'
