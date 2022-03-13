@@ -18,13 +18,11 @@ pipeline {
                 sh 'pwd'
                 sh 'mkdir test2'
                 sh 'chmod 777 test2'
-                sh 'cd test2'
-                sh 'wget https://chromedriver.storage.googleapis.com/99.0.4844.51/chromedriver_linux64.zip'
-                sh 'unzip chromedriver_linux64.zip'
+                sh 'cd test2 ; wget https://chromedriver.storage.googleapis.com/99.0.4844.51/chromedriver_linux64.zip'
+                sh 'cd test2 ; unzip chromedriver_linux64.zip'
                 sh 'ls -l'
                 sh 'chmod -R 777 $driver_path'
                 sh 'ls -l $driver_path'
-                sh 'cd ..'
 
                 // Run Maven on a Unix agent.
                 sh "mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
