@@ -12,6 +12,11 @@ pipeline {
                 // Get some code from a GitHub repository
                 git 'https://github.com/VladBerezovksiy/Saleforce.git'
 
+                sh 'pwd'
+                sh 'ls -l'
+                sh 'chmod -R 777 ./src/test/resources/linux/chromedriver'
+                sh 'ls -l ./src/test/resources/linux/chromedriver'
+
                 // Run Maven on a Unix agent.
                 sh "mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
             }
